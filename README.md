@@ -1,9 +1,9 @@
-# Rust *wgpu* Graphics Programming: Step-By-Step (10) 
-## Create a Cube with Lighting
+# Rust *wgpu* Graphics Programming: Step-By-Step (11) 
+## Create a Sphere with Lighting
 
-This is the source code for 10th video of the YouTube series on step-by-step Rust *wgpu* graphics programming.
+This is the source code for 11th video of the YouTube series on step-by-step Rust *wgpu* graphics programming.
 
-This sample *wgpu* app creates a cube with lighting. The output from this app is shown in the following image.
+This sample *wgpu* app creates a sphere with lighting. The output from this app is shown in the following image.
 
 ![wgpu10](src/images/image01.png)
 
