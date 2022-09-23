@@ -22,9 +22,9 @@ pub struct InitWgpu {
 impl InitWgpu {
     pub async fn init_wgpu(window: &Window) -> Self {
         let size = window.inner_size();
-        //let instance = wgpu::Instance::new(wgpu::Backends::all());
+        let instance = wgpu::Instance::new(wgpu::Backends::all());
         //let instance = wgpu::Instance::new(wgpu::Backends::VULKAN);
-        let instance = wgpu::Instance::new(wgpu::Backends::DX12);
+        //let instance = wgpu::Instance::new(wgpu::Backends::DX12);
         let surface = unsafe { instance.create_surface(window) };
         let adapter = instance
             .request_adapter(&wgpu::RequestAdapterOptions {
@@ -49,7 +49,7 @@ impl InitWgpu {
 
         let config = wgpu::SurfaceConfiguration {
             usage: wgpu::TextureUsages::RENDER_ATTACHMENT,
-            format: surface.get_preferred_format(&adapter).unwrap(),
+            format: surface.get_supported_formats(&adapter)[0],
             width: size.width,
             height: size.height,
             present_mode: wgpu::PresentMode::Fifo,
