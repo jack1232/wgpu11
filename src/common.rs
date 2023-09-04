@@ -244,6 +244,7 @@ impl State {
 
     fn resize(&mut self, new_size: winit::dpi::PhysicalSize<u32>) {
         if new_size.width > 0 && new_size.height > 0 {
+            self.init.instance.poll_all(true);
             self.init.size = new_size;
             self.init.config.width = new_size.width;
             self.init.config.height = new_size.height;
@@ -293,6 +294,7 @@ impl State {
             format:wgpu::TextureFormat::Depth24Plus,
             usage: wgpu::TextureUsages::RENDER_ATTACHMENT,
             label: None,
+            view_formats: &[],
         });
         let depth_view = depth_texture.create_view(&wgpu::TextureViewDescriptor::default());
 
